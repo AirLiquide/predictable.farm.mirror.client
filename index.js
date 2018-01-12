@@ -5,7 +5,6 @@ var os = require("os");
 var exec = require('child_process').exec;
 
 socket.on('connect', function() {
-    console.log("LOL");
     socket.emit("get_port", os.hostname());
 });
 
