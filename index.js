@@ -11,7 +11,7 @@ socket.on('connect', function() {
 socket.on('disconnect', function() {});
 
 socket.on('open_tunnel', function (port) {
-    exec('ssh -R 0.0.0.0:'+port+'+:0.0.0.0:22 ubuntu@18.195.139.85 -i id_rsa -N', function(error, stdout, stderr) {
+    exec('ssh -R 0.0.0.0:'+port+'+:0.0.0.0:22 ubuntu@mirror.predictable.run -i id_rsa -N', function(error, stdout, stderr) {
         console.log('stdout: ' + stdout);
         console.log('stderr: ' + stderr);
 
