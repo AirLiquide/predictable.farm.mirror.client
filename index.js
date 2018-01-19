@@ -1,4 +1,4 @@
-//var socket = require('/usr/lib/node_modules/socket.io-client')('http://192.168.1.166:3000');
+//var socket = require('/usr/lib/node_modules/socket.io-client')('http://mirror.predictable.run:3000');
 var socket = require('socket.io-client')('http://localhost:3000');
 var os = require("os");
 
@@ -11,16 +11,6 @@ socket.on('connect', function() {
 socket.on('disconnect', function() {});
 
 socket.on('open_tunnel', function (port) {
-    exec('ssh -R 0.0.0.0:'+port+'+:0.0.0.0:22 ubuntu@mirror.predictable.run -i id_rsa -N', function(error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
-
-        if(error === null) {
-            socket.emit("tunnel_ok", os.hostname());
-        }
-
-        if (error !== null) {
-            console.log('exec error: ' + error);
-        }
-    });
+    exec('ssh -R 0.0.0.0:'+port+'+:0.0.0.0:22 ubuntu@mirror.predictable.run -i id_rsa -y -N');
+    socket.emit("tunnel_ok", os.hostname());
 });
