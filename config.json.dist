@@ -1,0 +1,6 @@
+{
+    "server": {
+        "host": "mirror.predictable-farm.domain",
+        "user": "ubuntu"
+    }
+}
