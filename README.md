@@ -7,6 +7,8 @@ Simple script to run on the device in order to connect to the ssh mirror server,
 
 ### Installation
 
+Dependencies : **socket.io-client**
+
 > This software is to be installed on the device; hence, having limited resources, we favor a general installation of dependencies, not using `npm`.
 > As such, node modules should be installed in `/usr/lib/node_modules/` beforehand; We do not provide a `package.json` file for this repo (but it would be trivial to do so if you need it).
 
